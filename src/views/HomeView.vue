@@ -69,14 +69,14 @@
             </div>
         </section>
         <section
-            class="flex justify-center items-center flex-col gap-12 py-12 px-8 lg:px-0 lg:flex-row lg:gap-48 lg:min-h-128">
+            class="flex justify-center items-center flex-col gap-12 py-12 px-8 w-full lg:w-2/3 lg:justify-self-center lg:flex-row lg:gap-48 lg:min-h-128">
             <div>
                 <h2 class="text-4xl">君庭阁欢迎您</h2>
                 <br />
-                <p class="opacity-75">
-                    亲爱的的玩家,欢迎加入君庭阁这个大家庭！ 本服务器内置多个玩法 附魔 / 副本 / 挂机池 / 称号 / RPG武器 /
-                    阶级系统 等 服务器还配有小游戏世界和官方刷怪塔 快<a class="link" href="/server">下载客户端</a
-                    >加入我们吧!
+                <p class="opacity-75 lg:w-2/3">
+                    亲爱的的玩家,欢迎加入君庭阁这个大家庭！本服务器内置多个玩法：附魔 / 副本 / 挂机池 / 称号 / RPG武器 /
+                    阶级系统等。服务器还配有小游戏世界和官方刷怪塔，快
+                    <a class="link" href="/server">下载客户端</a> 加入我们吧!
                 </p>
                 <p id="poem-text"></p>
             </div>
