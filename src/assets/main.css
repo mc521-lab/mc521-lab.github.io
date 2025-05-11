@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+img:not(.has-event) {
+    pointer-events: none;
+}
+
+*:not(.selectable) {
+    user-select: none;
+}
