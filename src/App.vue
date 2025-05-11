@@ -19,17 +19,17 @@
 
 <template>
     <header
-        class="fixed top-0 w-full h-22 bg-black/50 flex items-center px-32 gap-2 transition-all duration-150 ease-in-out z-10"
-        :class="{ 'pl-48 bg-black/90': scrolled }">
-        <img src="/images/juntingge.png" alt="君庭阁" class="size-16 -rotate-12 rounded-sm mr-6" />
-        <button class="btn btn-outline border-0" @click="$router.push('/')">
+        class="fixed top-0 w-full bg-black/50 flex items-center transition-all duration-150 ease-in-out z-10 h-16 lg:h-22 px-8 lg:px-32 gap-2"
+        :class="{ 'bg-black/90 lg:pl-48': scrolled }">
+        <img src="/images/juntingge.png" alt="君庭阁" class="size-12 -rotate-12 rounded-sm lg:size-16 lg:mr-8" />
+        <button class="btn btn-outline border-0 hidden lg:block" @click="$router.push('/')">
             <span :class="{ 'opacity-75': $route.fullPath !== '/' }">首页</span>
         </button>
-        <button class="btn btn-outline border-0" @click="$router.push('/server')">
+        <button class="btn btn-outline border-0 hidden lg:block" @click="$router.push('/server')">
             <span :class="{ 'opacity-75': $route.fullPath !== '/server' }">纯净生存服</span>
         </button>
         <button
-            class="ml-auto btn btn-info btn-outline btn-circle"
+            class="ml-auto btn btn-info btn-outline btn-circle hidden lg:flex justify-center items-center"
             @click="openLink('https://space.bilibili.com/354529617')">
             <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24">
                 <path
@@ -37,7 +37,10 @@
                     d="M18.223 3.086a1.25 1.25 0 0 1 0 1.768L17.08 5.996h1.17A3.75 3.75 0 0 1 22 9.747v7.5a3.75 3.75 0 0 1-3.75 3.75H5.75A3.75 3.75 0 0 1 2 17.247v-7.5a3.75 3.75 0 0 1 3.75-3.75h1.166L5.775 4.855a1.25 1.25 0 0 1 1.767-1.768l2.652 2.652q.119.119.198.257h3.213q.08-.14.199-.258l2.651-2.652a1.25 1.25 0 0 1 1.768 0m.027 5.42H5.75a1.25 1.25 0 0 0-1.247 1.157l-.003.094v7.5c0 .659.51 1.198 1.157 1.246l.093.004h12.5a1.25 1.25 0 0 0 1.247-1.157l.003-.093v-7.5c0-.69-.56-1.25-1.25-1.25m-10 2.5c.69 0 1.25.56 1.25 1.25v1.25a1.25 1.25 0 1 1-2.5 0v-1.25c0-.69.56-1.25 1.25-1.25m7.5 0c.69 0 1.25.56 1.25 1.25v1.25a1.25 1.25 0 1 1-2.5 0v-1.25c0-.69.56-1.25 1.25-1.25" />
             </svg>
         </button>
-        <button class="btn btn-warning btn-outline btn-circle" @click="openLink('https://www.huya.com/ccjun6')">
+        <button
+            class="btn btn-warning btn-outline btn-circle hidden lg:flex justify-center items-center"
+            style="--btn-color: #ff9600"
+            @click="openLink('https://www.huya.com/ccjun6')">
             <svg xmlns="http://www.w3.org/2000/svg" class="size-7" viewBox="0 0 48 48">
                 <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                     <path
@@ -50,6 +53,33 @@
                 </g>
             </svg>
         </button>
+        <div class="drawer lg:hidden">
+            <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content ml-auto">
+                <!-- Page content here -->
+                <label for="my-drawer" class="btn btn-sm btn-outline btn-circle drawer-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 -translate-x-0.5" viewBox="0 0 24 24">
+                        <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7 6h14M7 12h14M7 18h14M3 18" />
+                    </svg>
+                </label>
+            </div>
+            <div class="drawer-side">
+                <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-6">
+                    <!-- Sidebar content here -->
+                    <h1 class="text-2xl">菜单</h1>
+                    <i class="divider" />
+                    <li><a href="/">主页</a></li>
+                    <li><a href="/server">纯净生存服</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
     <RouterView />
     <footer class="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">

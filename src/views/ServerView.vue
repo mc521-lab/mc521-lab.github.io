@@ -19,8 +19,8 @@
                 </ul>
             </div>
         </section>
-        <section class="py-16 w-full flex sm:flex-col sm:gap-8 lg:flex-row lg:justify-around">
-            <div class="translate-x-24">
+        <section class="py-16 w-full flex justify-center flex-col gap-8 lg:flex-row lg:gap-48">
+            <div class="self-center">
                 <h1 class="text-3xl">服务器 IP</h1>
                 <p class="text-lg mt-4">mc521.cc</p>
                 <h1 class="text-3xl mt-8">QQ 交流群</h1>
@@ -61,7 +61,7 @@
                     手机版下载
                 </button>
             </div>
-            <img src="/images/bg5.png" class="object-contain sm:px-8 lg:px-0" />
+            <img src="/images/bg5.png" class="object-contain px-8" />
         </section>
         <section class="h-16 flex items-center pl-[15vw]">
             <div class="breadcrumbs text-sm">

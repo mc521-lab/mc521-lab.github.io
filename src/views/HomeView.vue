@@ -41,7 +41,7 @@
             <div class="hero-overlay"></div>
             <div class="hero-content text-neutral-content text-center">
                 <div class="max-w-md scale-110">
-                    <section class="flex gap-4 justify-self-center text-[#fffacd]">
+                    <section class="flex flex-col lg:flex-row lg:gap-4 justify-self-center text-[#fffacd]">
                         <h1 class="mb-5 text-5xl font-bold">世外桃源</h1>
                         <section class="w-[calc(var(--text-5xl)*4)] relative">
                             <!-- 使用单一的 Transition 来控制所有标题的显示和隐藏 -->
@@ -59,7 +59,7 @@
                             </Transition>
                         </section>
                     </section>
-                    <p class="text-[#fffacd] mt-8">我的世界君庭阁服务器</p>
+                    <p class="text-[#fffacd] mt-32 lg:mt-8">我的世界君庭阁服务器</p>
                     <p class="text-[#fffacd] mb-8">服务器正常运行中！欢迎加入我们！</p>
                     <div class="flex gap-2 justify-self-center">
                         <button class="btn btn-warning" @click="$router.push('/server')">下载客户端</button>
@@ -68,20 +68,15 @@
                 </div>
             </div>
         </section>
-        <section class="flex justify-center items-center flex-col gap-12 py-12 lg:flex-row lg:gap-48 lg:min-h-128">
+        <section
+            class="flex justify-center items-center flex-col gap-12 py-12 px-8 lg:px-0 lg:flex-row lg:gap-48 lg:min-h-128">
             <div>
                 <h2 class="text-4xl">君庭阁欢迎您</h2>
                 <br />
                 <p class="opacity-75">
-                    亲爱的的玩家,欢迎加入君庭阁这个大家庭！
-                    <br />
-                    本服务器内置多个玩法
-                    <br />
-                    附魔 / 副本 / 挂机池 / 称号 / RPG武器 / 阶级系统 等
-                    <br />
-                    服务器还配有小游戏世界和官方刷怪塔
-                    <br />
-                    快<a class="link" href="/server">下载客户端</a>加入我们吧!
+                    亲爱的的玩家,欢迎加入君庭阁这个大家庭！ 本服务器内置多个玩法 附魔 / 副本 / 挂机池 / 称号 / RPG武器 /
+                    阶级系统 等 服务器还配有小游戏世界和官方刷怪塔 快<a class="link" href="/server">下载客户端</a
+                    >加入我们吧!
                 </p>
                 <p id="poem-text"></p>
             </div>
@@ -92,7 +87,7 @@
         </section>
         <section class="flex justify-center items-center flex-col lg:min-h-128 pb-24">
             <h2 class="text-4xl">风景欣赏</h2>
-            <div class="flex justify-center items-center mt-8 gap-2">
+            <div class="flex flex-col lg:flex-row justify-center items-center mt-8 gap-2">
                 <button
                     class="btn btn-sm btn-dash"
                     :class="{ 'btn-warning': preview_frame === 0 }"
@@ -124,7 +119,10 @@
                     玩家建筑
                 </button>
             </div>
-            <TransitionGroup name="fadeNormalOut" tag="div" class="grid grid-cols-4 grid-rows-2 mt-16 gap-4">
+            <TransitionGroup
+                name="fadeNormalOut"
+                tag="div"
+                class="flex flex-col lg:grid lg:grid-cols-4 lg:grid-rows-2 mt-16 gap-4">
                 <div
                     v-for="(img, _idx) in filteredImages"
                     :key="img.src"
@@ -140,15 +138,15 @@
             <img src="/images/bottom1.png" />
             <div class="mt-16 px-16">
                 <h2 class="text-4xl">主城风景欣赏</h2>
-                <p class="mt-8 w-128 opacity-75">
+                <p class="mt-8 opacity-75 lg:w-128">
                     全新的主城风格给您带来不一样的体验，让您在探索服务器的同时，获得前所未有的视觉与体验盛宴。庞大的建筑、生动的场景细节、独特的光影变化，交织出属于服务器的美丽景象。从现代都市到古典小镇，在这里你尽可以寻找到自己所喜欢的一切，发现属于自己的那份惊喜和喜爱。
                 </p>
             </div>
         </section>
         <section class="flex flex-col lg:flex-row w-full justify-end">
             <div class="mt-16 px-16">
-                <h2 class="text-4xl text-right">服务器后台</h2>
-                <p class="mt-8 w-128 opacity-75 text-right">
+                <h2 class="text-4xl text-center lg:text-right">服务器后台</h2>
+                <p class="mt-8 opacity-75 lg:text-right lg:w-128">
                     后台搭载AMD7950x 16 核心 32 线程 1T 硬盘容量的顶级配置
                     <br />
                     备份硬盘12T每三个小时备份一次24小时不间断保护大家的数据
@@ -156,7 +154,7 @@
                     不会担心服务器卡顿或过载，旨在为玩家提供更出色的游戏体验
                 </p>
             </div>
-            <img src="/images/bottom2.png" />
+            <img src="/images/bottom2.png" class="mt-8 lg:mt-0" />
         </section>
     </main>
 </template>
