@@ -44,7 +44,6 @@
                     <section class="flex flex-col lg:flex-row lg:gap-4 justify-self-center text-[#fffacd]">
                         <h1 class="mb-5 text-5xl font-bold">世外桃源</h1>
                         <section class="w-[calc(var(--text-5xl)*4)] relative">
-                            <!-- 使用单一的 Transition 来控制所有标题的显示和隐藏 -->
                             <Transition name="fadeQuickOut">
                                 <h1 v-if="title_frame % 4 === 0" class="mb-5 text-5xl font-bold absolute">梦里踏雪</h1>
                             </Transition>
