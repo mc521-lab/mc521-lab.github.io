@@ -121,8 +121,6 @@
     // Reset & Leave
     const resetAll = () => {
         data.value = null;
-        fileInput.value!.value = "";
-        // namemcInput.value!.value = "";
         step.value = 0;
         username.value = "";
         isFinalBtnDisabled.value = true;
@@ -146,7 +144,7 @@
 
     // Mount Hook
     onMounted(() => {
-        EventBus.emit<THint>("hint:create", { type: "info", content: "当前落颜工具版本为 v0.1.0" });
+        EventBus.emit<THint>("hint:create", { type: "info", content: "当前落颜工具版本为 v1.0.0" });
     });
 
     // Unmount Hook
