@@ -31,7 +31,12 @@ jobs:
                   pnpm install
 
             - name: Build Vue project
-              run: pnpm run build
+              env:
+                  Alist_Url: ${{ secrets.ALIST_URL }}
+                  Alist_Username: ${{ secrets.ALIST_USERNAME }}
+                  Alist_Password: ${{ secrets.ALIST_PASSWORD }}
+                  Alist_Download_Url_Base: ${{ secrets.ALIST_DOWNLOAD_URL_BASE }}
+              run: pnpm build
 
             - name: Upload build artifact
               uses: actions/upload-pages-artifact@v3
