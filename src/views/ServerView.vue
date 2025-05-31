@@ -37,12 +37,7 @@
                 </p>
                 <h1 class="text-3xl mt-8">客户端下载</h1>
                 <button class="btn bg-[#2F2F2F] text-white border-black mt-4">
-                    <svg
-                        aria-label="Microsoft logo"
-                        width="16"
-                        height="16"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512">
+                    <svg aria-label="Microsoft logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path d="M96 96H247V247H96" fill="#f24f23"></path>
                         <path d="M265 96V247H416V96" fill="#7eba03"></path>
                         <path d="M96 265H247V416H96" fill="#3ca4ef"></path>
@@ -56,7 +51,8 @@
                         <rect width="4" height="10" x="26" y="12" fill="#8bc34a" rx="2" />
                         <path
                             fill="#8bc34a"
-                            d="M8 12h16v12H8zm2 12h4v4a2 2 0 0 1-2 2a2 2 0 0 1-2-2zm8 0h4v4a2 2 0 0 1-2 2a2 2 0 0 1-2-2zm3.545-19.759l2.12-2.12A1 1 0 0 0 22.251.707l-2.326 2.326a7.97 7.97 0 0 0-7.85 0L9.75.707a1 1 0 1 0-1.414 1.414l2.12 2.12A7.97 7.97 0 0 0 8 10h16a7.97 7.97 0 0 0-2.455-5.759M14 8h-2V6h2Zm6 0h-2V6h2Z" />
+                            d="M8 12h16v12H8zm2 12h4v4a2 2 0 0 1-2 2a2 2 0 0 1-2-2zm8 0h4v4a2 2 0 0 1-2 2a2 2 0 0 1-2-2zm3.545-19.759l2.12-2.12A1 1 0 0 0 22.251.707l-2.326 2.326a7.97 7.97 0 0 0-7.85 0L9.75.707a1 1 0 1 0-1.414 1.414l2.12 2.12A7.97 7.97 0 0 0 8 10h16a7.97 7.97 0 0 0-2.455-5.759M14 8h-2V6h2Zm6 0h-2V6h2Z"
+                        />
                     </svg>
                     手机版下载
                 </button>

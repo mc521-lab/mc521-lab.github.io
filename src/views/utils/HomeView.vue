@@ -32,7 +32,8 @@
                 class="card bg-base-100 card-md"
                 v-for="tool in tools"
                 :key="tool.title"
-                @click="tool.routerLink ? $router.push(tool.routerLink) : tool.link ? openLink(tool.link) : null">
+                @click="tool.routerLink ? $router.push(tool.routerLink) : tool.link ? openLink(tool.link) : null"
+            >
                 <div class="card-body">
                     <h2 class="card-title">{{ tool.title }}</h2>
                     <p>{{ tool.desc }}</p>

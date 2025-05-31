@@ -19,12 +19,7 @@
     <Footer />
     <section class="fixed bottom-4 right-4 flex flex-col gap-4">
         <TransitionGroup name="list" tag="div">
-            <Hint
-                v-for="item of alertlist"
-                :key="item.content"
-                :type="item.type"
-                :content="item.content"
-                :time="item.time" />
+            <Hint v-for="item of alertlist" :key="item.content" :type="item.type" :content="item.content" :time="item.time" />
         </TransitionGroup>
     </section>
 </template>
@@ -53,3 +48,4 @@
         transform: translateX(30px);
     }
 </style>
+

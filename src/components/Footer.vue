@@ -27,9 +27,7 @@
         <nav>
             <h6 class="footer-title">备案信息</h6>
             <a class="link link-hover">陕ICP备2022008445号</a>
-            <a
-                class="link link-hover flex gap-1 items-center"
-                href="https://beian.mps.gov.cn/#/query/webSearch?code=61092602000117">
+            <a class="link link-hover flex gap-1 items-center" href="https://beian.mps.gov.cn/#/query/webSearch?code=61092602000117">
                 <img src="/icons/beian.png" class="size-4" alt="公安" />
                 陕公网安备61092602000117号
             </a>
