@@ -38,7 +38,7 @@
 <template>
     <main>
         <section class="hero min-h-screen" style="background-image: url(/images/poster.png)">
-            <div class="hero-overlay"></div>
+            <div class="hero-overlay backdrop-blur-xs"></div>
             <div class="hero-content text-neutral-content text-center">
                 <div class="max-w-md scale-110">
                     <section class="flex flex-col lg:flex-row lg:gap-4 justify-self-center text-[#fffacd]">
@@ -75,7 +75,7 @@
                 <p class="opacity-75 lg:w-2/3">
                     亲爱的的玩家,欢迎加入君庭阁这个大家庭！本服务器内置多个玩法：附魔 / 副本 / 挂机池 / 称号 / RPG武器 /
                     阶级系统等。服务器还配有小游戏世界和官方刷怪塔，快
-                    <a class="link" href="/server">下载客户端</a> 加入我们吧!
+                    <a class="link" @click="$router.push('/server')">下载客户端</a> 加入我们吧!
                 </p>
                 <p id="poem-text"></p>
             </div>
@@ -118,10 +118,7 @@
                     玩家建筑
                 </button>
             </div>
-            <TransitionGroup
-                name="fadeNormalOut"
-                tag="div"
-                class="flex flex-col lg:grid lg:grid-cols-4 lg:grid-rows-2 mt-16 gap-4">
+            <TransitionGroup name="list" tag="div" class="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-16">
                 <div
                     v-for="(img, _idx) in filteredImages"
                     :key="img.src"
@@ -133,7 +130,7 @@
                 </div>
             </TransitionGroup>
         </section>
-        <section class="flex flex-col lg:flex-row w-full justify-start">
+        <section class="flex flex-col lg:flex-row w-full justify-start transition-all duration-300 ease-in-out">
             <img src="/images/bottom1.png" />
             <div class="mt-16 px-16">
                 <h2 class="text-4xl">主城风景欣赏</h2>
@@ -158,7 +155,7 @@
     </main>
 </template>
 
-<style>
+<style scoped>
     /* 控制进入和离开的透明度 */
     .fadeQuickOut-enter-active,
     .fadeQuickOut-leave-active {
@@ -172,16 +169,19 @@
         transition: none;
     }
 
-    .fadeNormalOut-enter-active,
-    .fadeNormalOut-leave-active {
-        transition: all 0.4s ease;
+    .list-move,
+    .list-enter-active,
+    .list-leave-active {
+        transition: all 0.5s ease;
     }
-    .fadeNormalOut-enter-from,
-    .fadeNormalOut-leave-to {
+
+    .list-enter-from,
+    .list-leave-to {
         opacity: 0;
-        transform: scale(0.95);
+        transform: translateX(30px);
     }
-    .fadeNormalOut-move {
-        transition: transform 0.4s ease;
+
+    .list-leave-active {
+        position: absolute;
     }
 </style>

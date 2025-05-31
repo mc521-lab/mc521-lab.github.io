@@ -1,41 +1,55 @@
 <script setup lang="ts">
+    import { ref } from "vue";
     import { RouterView } from "vue-router";
-    import Header from "@/components/Header.vue";
+    import { Header, Footer, Hint } from "@/components";
+    import { EventBus } from "@/modules/EventBus";
+    import type { THint } from "@/types/Hint";
+
+    const alertlist = ref<THint[]>([]);
+    EventBus.on("hint:create", (payload: THint) => {
+        alertlist.value.push(payload);
+    });
 </script>
 
 <template>
     <Header />
-    <RouterView />
-    <footer class="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
-        <aside>
-            <img src="/images/logo.png" alt="君庭阁" class="size-14 -rotate-12 rounded-sm" />
-            <p>
-                君庭阁服务器
-                <br />
-                {这句话是占位用的，记得换}
-            </p>
-        </aside>
-        <nav>
-            <h6 class="footer-title">{还没想好写啥标题}</h6>
-            <a class="link link-hover">{还没想好写啥}</a>
-            <a class="link link-hover">{还没想好写啥}</a>
-            <a class="link link-hover">{还没想好写啥}</a>
-            <a class="link link-hover">{还没想好写啥}</a>
-        </nav>
-        <nav>
-            <h6 class="footer-title">更多</h6>
-            <a class="link link-hover">关于我们</a>
-            <a class="link link-hover">网站作者</a>
-        </nav>
-        <nav>
-            <h6 class="footer-title">备案信息</h6>
-            <a class="link link-hover">陕ICP备2022008445号</a>
-            <a
-                class="link link-hover flex gap-1 items-center"
-                href="https://beian.mps.gov.cn/#/query/webSearch?code=61092602000117">
-                <img src="/icons/beian.png" class="size-4" alt="公安" />
-                陕公网安备61092602000117号
-            </a>
-        </nav>
-    </footer>
+    <RouterView v-slot="{ Component }">
+        <Transition name="fade" mode="out-in"><component :is="Component" /></Transition>
+    </RouterView>
+    <Footer />
+    <section class="fixed bottom-4 right-4 flex flex-col gap-4">
+        <TransitionGroup name="list" tag="div">
+            <Hint
+                v-for="item of alertlist"
+                :key="item.content"
+                :type="item.type"
+                :content="item.content"
+                :time="item.time" />
+        </TransitionGroup>
+    </section>
 </template>
+
+<style lang="css" scoped>
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.25s ease-in-out;
+    }
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+    .fade-enter-to,
+    .fade-leave-from {
+        opacity: 1;
+    }
+
+    .list-enter-active,
+    .list-leave-active {
+        transition: all 0.25s ease-in-out;
+    }
+    .list-enter-from,
+    .list-leave-to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+</style>

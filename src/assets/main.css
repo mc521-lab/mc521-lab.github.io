@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+    exclude: rootscrollgutter, scrollbar;
+}
 
 img:not(.has-event) {
     pointer-events: none;
@@ -7,4 +9,8 @@ img:not(.has-event) {
 
 *:not(.selectable) {
     user-select: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

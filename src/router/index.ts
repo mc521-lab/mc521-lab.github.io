@@ -14,6 +14,17 @@ const router = createRouter({
             name: "server",
             component: () => import("../views/ServerView.vue"),
         },
+        // Utils
+        {
+            path: "/utils",
+            name: "utils",
+            component: () => import("../views/utils/HomeView.vue"),
+        },
+        {
+            path: "/utils/skindrop",
+            name: "utils-skindrop",
+            component: () => import("../views/utils/SkinDropView.vue"),
+        },
     ],
 });
 

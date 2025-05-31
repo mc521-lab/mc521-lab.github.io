@@ -1,8 +1,8 @@
 <template>
     <main>
         <section class="hero min-h-[25vh]" style="background-image: url(/images/bg1.png)">
-            <div class="hero-overlay"></div>
-            <div class="hero-content text-neutral-content text-center">
+            <div class="hero-overlay backdrop-blur-xs"></div>
+            <div class="hero-content text-neutral-content text-center pt-16">
                 <div class="max-w-md">
                     <section class="flex gap-4 justify-self-center text-[#fffacd]">
                         <h1 class="mb-5 text-5xl font-semibold">纯净生存服</h1>
@@ -10,7 +10,7 @@
                 </div>
             </div>
         </section>
-        <section class="h-16 flex items-center pl-[15vw]">
+        <section class="h-16 flex items-center pl-[15vw] bg-base-200">
             <div class="breadcrumbs text-sm">
                 <ul>
                     <li><a href="/">首页</a></li>
@@ -63,7 +63,7 @@
             </div>
             <img src="/images/bg5.png" class="object-contain px-8" />
         </section>
-        <section class="h-16 flex items-center pl-[15vw]">
+        <section class="h-16 flex items-center pl-[15vw] bg-base-200">
             <div class="breadcrumbs text-sm">
                 <ul>
                     <li><a href="/">首页</a></li>

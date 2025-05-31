@@ -34,6 +34,9 @@
         <button class="btn btn-outline border-0 hidden lg:block" @click="$router.push('/server')">
             <span :class="{ 'opacity-75': $route.fullPath !== '/server' }">纯净生存服</span>
         </button>
+        <button class="btn btn-outline border-0 hidden lg:block" @click="$router.push('/utils')">
+            <span :class="{ 'opacity-75': !$route.fullPath.startsWith('/utils') }">工具</span>
+        </button>
         <div class="ml-auto tooltip tooltip-bottom" data-tip="官方 BiliBili 账户">
             <button
                 class="btn btn-info btn-outline btn-circle hidden lg:flex justify-center items-center"
@@ -95,6 +98,9 @@
                     </li>
                     <li>
                         <a @click="JumpAndClose('/server')">纯净生存服</a>
+                    </li>
+                    <li>
+                        <a @click="JumpAndClose('/utils')">工具</a>
                     </li>
                     <i class="divider mt-auto mb-3" />
                     <li>
