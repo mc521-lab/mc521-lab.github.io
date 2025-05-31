@@ -106,7 +106,7 @@
         fileType.value = data.value!.type.split("/")[1];
         try {
             await navigator.clipboard.writeText(
-                `/skin set ${username} ${Alist_Url}/d/${Alist_Download_Url_Base}/${username}.${fileType}`
+                `/skin set ${username} ${Alist_Url}/d/${Alist_Download_Url_Base}/${username}.${fileType.value}`
             );
             EventBus.emit<THint>("hint:create", { type: "success", content: "已复制命令到剪贴板" });
         } catch (err) {
