@@ -14,7 +14,7 @@ export async function uploadFileToAlist(file: File, filename: string) {
     });
 
     if (!username || !password || !file || !filename) {
-        return [null, "输入不完整！"];
+        return [null, "输入不完整"];
     }
 
     try {
