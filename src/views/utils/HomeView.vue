@@ -11,7 +11,7 @@
     const tools: ITools[] = [
         {
             title: "落颜 · SkinDrop",
-            desc: "为 SkinsRestorer 量身打造的轻量级皮肤上传与命令生成工具，支持拖拽一键生成公开链接。",
+            desc: "为 SkinsRestorer 量身打造的轻量级皮肤上传与命令生成工具，支持一键生成可用于 SkinsRestorer 指令的公开链接与命令",
             routerLink: "/utils/skindrop",
         },
     ];
