@@ -118,7 +118,7 @@
         }
     };
 
-    // Reset & Leave
+    // Reset
     const resetAll = () => {
         data.value = null;
         step.value = 0;
@@ -128,13 +128,20 @@
         uploadResult.value = null;
         uploadError.value = "";
     };
-    const leaveSkinDrop = () => {
+
+    // Leave
+    const _operation = (callback: Function) => {
         if (step.value !== 0 || data.value !== null) {
             if (confirm("你确定要离开吗？所有未保存的内容将会被丢弃。")) {
-                router.push("/utils");
+                callback();
             }
-        } else router.push("/utils");
+        } else callback();
     };
+    router.beforeEach((to, from, next) => {
+        if (from.fullPath === "/utils/skindrop" && to.fullPath !== from.fullPath) {
+            _operation(next);
+        }
+    });
 
     // Listener
     const watchUsernameInput = watch(username, (newValue, oldValue) => {
@@ -172,7 +179,7 @@
                             </svg>
                         </button>
                     </Transition>
-                    <button class="btn btn-square" @click="leaveSkinDrop">
+                    <button class="btn btn-square" @click="$router.push('/utils')">
                         <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8z" />
                         </svg>
@@ -234,7 +241,11 @@
                                     <p class="label">
                                         <a class="underline" href="https://namemc.com" target="_blank">打开 NameMC</a>
                                         <a class="underline" href="https://zh.namemc.com" target="_blank">打开 NameMC 中国站</a>
-                                        <span class="underline cursor-help tooltip tooltip-right" data-tip="在 NameMC 中打开你喜欢的皮肤，复制网页链接粘贴至上方输入框并确认即可。">如何使用？</span>
+                                        <span
+                                            class="underline cursor-help tooltip tooltip-right"
+                                            data-tip="在 NameMC 中打开你喜欢的皮肤，复制网页链接粘贴至上方输入框并确认即可。"
+                                            >如何使用？</span
+                                        >
                                     </p>
                                 </fieldset>
                                 <div class="divider w-9/10 mx-auto"></div>
@@ -306,7 +317,6 @@
                                         {{ uploadStatus }}
                                     </span>
                                 </div>
-
                                 <div v-if="uploadResult" class="shadow-xl flex gap-4 justify-center">
                                     <button class="btn btn-primary copy-btn" @click="handleCopy(username)">复制换皮肤命令</button>
                                     <button class="btn btn-neutral" @click="resetAll">再上传一个</button>
