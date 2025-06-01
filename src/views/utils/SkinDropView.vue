@@ -1,34 +1,37 @@
 <script setup lang="ts">
     import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
-    import * as skinview3d from "skinview3d";
-    // import axios from "axios";
+    import { useRouter } from "vue-router";
+    import axios from "axios";
+    import { SkinViewer, WalkingAnimation } from "skinview3d";
     import { EventBus } from "@/modules/EventBus";
     import type { THint } from "@/types/Hint";
     import { uploadFileToAlist } from "@/modules/AlistAPI";
-    import { useRouter } from "vue-router";
-    import axios from "axios";
 
     const router = useRouter();
 
+    // Step Control Variables
     const step = ref(0);
     const okToPass = ref<boolean>(false);
 
+    // Input Datas
     const data = ref<File | null>(null);
     const dataUrl = ref<string | null>(null);
     const fileInput = ref<HTMLInputElement | null>(null);
     const namemcInput = ref<HTMLInputElement | null>(null);
     const fileType = ref<string>("");
-
-    const skinview = ref<HTMLCanvasElement | null>(null);
-    const skinViewer = ref<skinview3d.SkinViewer | null>(null);
-
     const username = ref<string>("");
     const isFinalBtnDisabled = ref<boolean>(true);
 
+    // Skin Preview
+    const skinview = ref<HTMLCanvasElement | null>(null);
+    const skinviewInstance = ref<SkinViewer | null>(null);
+
+    // Result Datas
     const uploadStatus = ref<string>("");
     const uploadResult = ref<any>(null);
     const uploadError = ref<string>("");
 
+    // Step 1
     const handleFileInputChange = (event: Event) => {
         const target = event.target as HTMLInputElement;
         const file = target.files?.[0];
@@ -66,15 +69,15 @@
                 // 从文件获取
                 skinFile = URL.createObjectURL(data.value as File);
             }
-            if (!skinViewer.value) {
-                skinViewer.value = new skinview3d.SkinViewer({
+            if (!skinviewInstance.value) {
+                skinviewInstance.value = new SkinViewer({
                     canvas: skinview.value!,
                     width: 512,
                     height: 512,
                     skin: skinFile,
                 });
             }
-            skinViewer.value.animation = new skinview3d.WalkingAnimation();
+            skinviewInstance.value.animation = new WalkingAnimation();
         });
     };
 
@@ -156,8 +159,8 @@
 
     // Unmount Hook
     onUnmounted(() => {
-        if (skinViewer.value) {
-            skinViewer.value.dispose();
+        if (skinviewInstance.value) {
+            skinviewInstance.value.dispose();
         }
         watchUsernameInput.stop();
     });
