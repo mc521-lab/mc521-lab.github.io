@@ -233,6 +233,7 @@
                                         <input
                                             type="url"
                                             required
+                                            disabled
                                             placeholder="https://namemc.com/skin/... 或 https://zh.namemc.c..."
                                             pattern="^https:\/\/(zh\.)?namemc\.com\/skin\/[0-9a-f]+$"
                                             title="需要正确的 NameMC 皮肤 URL"
@@ -244,11 +245,16 @@
                                     <p class="label">
                                         <a class="underline" href="https://namemc.com" target="_blank">打开 NameMC</a>
                                         <a class="underline" href="https://zh.namemc.com" target="_blank">打开 NameMC 中国站</a>
+                                        <!-- <span
+                                            class="underline cursor-help tooltip tooltip-right"
+                                            data-tip="在 NameMC 中打开你喜欢的皮肤，复制网页链接粘贴至上方输入框并确认即可。">
+                                            如何使用？
+                                        </span> -->
                                         <span
                                             class="underline cursor-help tooltip tooltip-right"
-                                            data-tip="在 NameMC 中打开你喜欢的皮肤，复制网页链接粘贴至上方输入框并确认即可。"
-                                            >如何使用？</span
-                                        >
+                                            data-tip="由于 NameMC 的限制，我们无法直接获取皮肤文件，且反代节点被封掉了，故此功能暂时下线">
+                                            为何我无法输入？
+                                        </span>
                                     </p>
                                 </fieldset>
                                 <div class="divider w-9/10 mx-auto"></div>

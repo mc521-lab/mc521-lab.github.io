@@ -81,17 +81,41 @@
             <img
                 class="has-event size-64 rounded-lg lg:size-72 lg:hover:scale-110 lg:transition-all lg:duration-250 lg:ease-in-out"
                 src="/images/logo.png"
-                alt="服务器Logo"
-            />
+                alt="服务器Logo" />
         </section>
         <section class="flex justify-center items-center flex-col lg:min-h-128 pb-24">
             <h2 class="text-4xl">风景欣赏</h2>
             <div class="flex flex-col lg:flex-row justify-center items-center mt-8 gap-2">
-                <button class="btn btn-sm btn-dash" :class="{ 'btn-warning': preview_frame === 0 }" @click="preview_frame = 0">显示全部</button>
-                <button class="btn btn-sm btn-dash" :class="{ 'btn-warning': preview_frame === 1 }" @click="preview_frame = 1">主城风景</button>
-                <button class="btn btn-sm btn-dash" :class="{ 'btn-warning': preview_frame === 2 }" @click="preview_frame = 2">宣传海报</button>
-                <button class="btn btn-sm btn-dash" :class="{ 'btn-warning': preview_frame === 3 }" @click="preview_frame = 3">玩家合照</button>
-                <button class="btn btn-sm btn-dash" :class="{ 'btn-warning': preview_frame === 4 }" @click="preview_frame = 4">玩家建筑</button>
+                <button
+                    class="btn btn-sm"
+                    :class="{ 'btn-warning btn-outline': preview_frame === 0, 'btn-dash': preview_frame !== 0 }"
+                    @click="preview_frame = 0">
+                    显示全部
+                </button>
+                <button
+                    class="btn btn-sm"
+                    :class="{ 'btn-warning btn-outline': preview_frame === 1, 'btn-dash': preview_frame !== 1 }"
+                    @click="preview_frame = 1">
+                    主城风景
+                </button>
+                <button
+                    class="btn btn-sm"
+                    :class="{ 'btn-warning btn-outline': preview_frame === 2, 'btn-dash': preview_frame !== 2 }"
+                    @click="preview_frame = 2">
+                    宣传海报
+                </button>
+                <button
+                    class="btn btn-sm"
+                    :class="{ 'btn-warning btn-outline': preview_frame === 3, 'btn-dash': preview_frame !== 3 }"
+                    @click="preview_frame = 3">
+                    玩家合照
+                </button>
+                <button
+                    class="btn btn-sm"
+                    :class="{ 'btn-warning btn-outline': preview_frame === 4, 'btn-dash': preview_frame !== 4 }"
+                    @click="preview_frame = 4">
+                    玩家建筑
+                </button>
             </div>
             <TransitionGroup name="list" tag="div" class="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-16">
                 <div
@@ -100,8 +124,7 @@
                     :enter="{ scale: 0, opacity: 0 }"
                     :enter-active="{ scale: 1, opacity: 1 }"
                     :leave-active="{ scale: 1, opacity: 1 }"
-                    :leave-to="{ scale: 0, opacity: 0 }"
-                >
+                    :leave-to="{ scale: 0, opacity: 0 }">
                     <PreviewImage class="w-64" :src="img.src" :hoverText="img.text" />
                 </div>
             </TransitionGroup>
