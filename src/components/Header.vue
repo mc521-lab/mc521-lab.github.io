@@ -34,9 +34,6 @@
         <button class="btn btn-outline border-0 hidden lg:block" @click="$router.push('/server')">
             <span :class="{ 'opacity-75': $route.fullPath !== '/server' }">纯净生存服</span>
         </button>
-        <button class="btn btn-outline border-0 hidden lg:block opacity-75" @click="openLink('/wiki')">
-            <span>Wiki <div class="badge badge-xs badge-warning -translate-y-1">新增</div></span>
-        </button>
         <button class="btn btn-outline border-0 hidden lg:block" @click="$router.push('/utils')">
             <span :class="{ 'opacity-75': !$route.fullPath.startsWith('/utils') }">工具</span>
         </button>
